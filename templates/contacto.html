@@ -8,87 +8,70 @@
 </head>
 <body>
 
-    <!-- 🧭 BARRA DE NAVEGACIÓN -->
+    <!-- 📌 BARRA DE NAVEGACIÓN -->
     <nav>
-        <a href="{{ url_for('inicio') }}" class="logo">NG</a>
+        <a href="/" class="logo">NG</a>
         <div class="info-superior">
             <span>⭐ Garantía Escrita</span>
-            <span>⏱️ Atención Inmediata</span>
-            <span>🛡️ Calidad Certificada</span>
+            <span>⚡ Atención Inmediata</span>
+            <span>🔵 Calidad Certificada</span>
         </div>
         <ul>
-            <li><a href="{{ url_for('inicio') }}">INICIO</a></li>
-            <li><a href="{{ url_for('servicios') }}">SERVICIOS</a></li>
-            <li><a href="{{ url_for('portafolio') }}">PORTAFOLIO</a></li>
-            <li><a href="{{ url_for('nosotros') }}">NOSOTROS</a></li>
-            <li><a href="{{ url_for('contacto') }}" class="active">CONTACTO</a></li>
+            <li><a href="/">INICIO</a></li>
+            <li><a href="/servicios">SERVICIOS</a></li>
+            <li><a href="/portafolio">PORTAFOLIO</a></li>
+            <li><a href="/nosotros">NOSOTROS</a></li>
+            <li><a href="/contacto">CONTACTO</a></li>
             <li><a href="https://wa.me/{{ empresa.whatsapp }}" target="_blank" class="btn-whatsapp-nav">📞 {{ empresa.telefono }}</a></li>
         </ul>
     </nav>
 
-    <!-- 📞 INFORMACIÓN DE CONTACTO DIRECTO -->
     <section class="contenedor">
-        <h1 class="titulo-seccion">ESTAMOS LISTOS PARA AYUDARTE</h1>
-        <p class="subtitulo-seccion">Escríbenos, llámanos o envíanos un mensaje. Te responderemos en menos de 15 minutos.</p>
-
-        <div class="datos-contacto-directo">
-            <p>📲 <strong>WHATSAPP DIRECTO:</strong> <a href="https://wa.me/{{ empresa.whatsapp }}" target="_blank">{{ empresa.telefono }}</a></p>
-            <p>✉️ <strong>CORREO:</strong> <a href="mailto:{{ empresa.correo }}">{{ empresa.correo }}</a></p>
-            <p>📍 <strong>UBICACIÓN:</strong> {{ empresa.ubicacion }}</p>
-            <p>⏰ <strong>HORARIOS:</strong> Lunes a Viernes 8am - 6pm | Sábados 8am - 1pm</p>
-            <p>🚨 <strong>SERVICIO DE URGENCIAS:</strong> Disponibilidad para atención inmediata en casos críticos.</p>
+        <h1 class="titulo-seccion">Contáctanos</h1>
+        <div class="grid-2col">
+            <div>
+                <h2>Estamos para servirte</h2>
+                <p>Escríbenos o llámanos, te asesoramos sin compromiso y te damos la mejor solución para tu proyecto.</p>
+                <br>
+                <p>📞 <strong>Teléfono / WhatsApp:</strong><br> {{ empresa.telefono }}</p>
+                <p>✉️ <strong>Correo:</strong><br> {{ empresa.correo }}</p>
+                <p>📍 <strong>Ubicación:</strong><br> {{ empresa.direccion }}</p>
+                <br>
+                <a href="https://wa.me/{{ empresa.whatsapp }}" target="_blank" class="boton">💬 ENVIAR MENSAJE POR WHATSAPP</a>
+            </div>
+            <div>
+                <img src="/static/imagenes/logo.png" alt="Contacto" style="width:100%;">
+            </div>
         </div>
     </section>
 
-    <!-- 📝 FORMULARIO DE MENSAJE -->
-    <section class="contenedor">
-        <h2 class="titulo-seccion">O ESCRÍBENOS AQUÍ</h2>
-
-        {% with mensajes = get_flashed_messages(with_categories=true) %}
-        {% if mensajes %}
-            {% for categoria, mensaje in mensajes %}
-                <div class="alerta exito">{{ mensaje }}</div>
-            {% endfor %}
-        {% endif %}
-        {% endwith %}
-
-        <form action="{{ url_for('contacto') }}" method="POST" class="formulario">
-            <div class="grupo-input">
-                <label for="nombre">Nombre Completo</label>
-                <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre aquí">
-            </div>
-
-            <div class="grupo-input">
-                <label for="telefono">Teléfono / WhatsApp</label>
-                <input type="tel" id="telefono" name="telefono" required placeholder="Ej: 322 802 2560">
-            </div>
-
-            <div class="grupo-input">
-                <label for="servicio">¿Qué servicio necesitas?</label>
-                <select id="servicio" name="servicio" required>
-                    <option value="">Selecciona una opción</option>
-                    {% for serv in empresa.servicios %}
-                    <option value="{{ serv.titulo }}">{{ serv.titulo }}</option>
-                    {% endfor %}
-                    <option value="Otro">Otro / Consulta General</option>
-                </select>
-            </div>
-
-            <div class="grupo-input">
-                <label for="mensaje">Cuéntanos brevemente qué necesitas</label>
-                <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Describe tu proyecto o duda..."></textarea>
-            </div>
-
-            <button type="submit" class="boton" style="width:100%;">🚀 ENVIAR SOLICITUD - TE CONTACTAMOS YA</button>
-
-            <p style="text-align:center; margin-top:1rem; font-size:0.9rem; color:var(--azul-claro);">✅ Tus datos están seguros con nosotros. No enviamos spam.</p>
-        </form>
-    </section>
-
-    <!-- 🦶 PIE DE PÁGINA -->
+    <!-- 📌 PIE DE PÁGINA -->
     <footer>
-        <p>&copy; 2026 {{ empresa.nombre }}. Todos los derechos reservados.</p>
-        <p>{{ empresa.tecnico }} | {{ empresa.cargo }}</p>
+        <div class="contenedor">
+            <div class="grid-3col">
+                <div>
+                    <h3>{{ empresa.nombre }}</h3>
+                    <p>Soluciones tecnológicas y seguridad electrónica de alta calidad.</p>
+                </div>
+                <div>
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/servicios">Servicios</a></li>
+                        <li><a href="/portafolio">Portafolio</a></li>
+                        <li><a href="/nosotros">Nosotros</a></li>
+                        <li><a href="/contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contacto</h4>
+                    <p>📞 {{ empresa.telefono }}</p>
+                    <p>✉️ {{ empresa.correo }}</p>
+                    <p>📍 {{ empresa.direccion }}</p>
+                </div>
+            </div>
+            <p class="derechos">© {{ empresa.nombre }} - Todos los derechos reservados</p>
+        </div>
     </footer>
 
 </body>
