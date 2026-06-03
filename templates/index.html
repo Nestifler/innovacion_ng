@@ -3,134 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ empresa.nombre }} | Seguridad y Tecnología</title>
+    <title>Inicio | {{ empresa.nombre }}</title>
+    <!-- ✅ RUTA CORREGIDA -->
     <link rel="stylesheet" href="/static/css/estilo.css">
 </head>
 <body>
 
-    <!-- 🧭 BARRA DE NAVEGACIÓN -->
+    <!-- 📌 BARRA DE NAVEGACIÓN -->
     <nav>
-        <a href="{{ url_for('inicio') }}" class="logo">NG</a>
+        <a href="/" class="logo">NG</a>
         <div class="info-superior">
             <span>⭐ Garantía Escrita</span>
-            <span>⏱️ Atención Inmediata</span>
-            <span>🛡️ Calidad Certificada</span>
+            <span>⚡ Atención Inmediata</span>
+            <span>🔵 Calidad Certificada</span>
         </div>
         <ul>
-            <li><a href="{{ url_for('inicio') }}" class="active">INICIO</a></li>
-            <li><a href="{{ url_for('servicios') }}">SERVICIOS</a></li>
-            <li><a href="{{ url_for('portafolio') }}">PORTAFOLIO</a></li>
-            <li><a href="{{ url_for('nosotros') }}">NOSOTROS</a></li>
-            <li><a href="{{ url_for('contacto') }}">CONTACTO</a></li>
+            <li><a href="/">INICIO</a></li>
+            <li><a href="/servicios">SERVICIOS</a></li>
+            <li><a href="/portafolio">PORTAFOLIO</a></li>
+            <li><a href="/nosotros">NOSOTROS</a></li>
+            <li><a href="/contacto">CONTACTO</a></li>
             <li><a href="https://wa.me/{{ empresa.whatsapp }}" target="_blank" class="btn-whatsapp-nav">📞 {{ empresa.telefono }}</a></li>
         </ul>
     </nav>
 
-    <!-- 🖼️ CABECERA PRINCIPAL -->
-    <header>
-        <img src="{{ url_for('static', filename='imagenes/logo.png') }}" alt="Logo NG" class="logo-grande">
+    <!-- 📌 CABECERA PRINCIPAL -->
+    <header class="hero">
+        <!-- ✅ RUTA DE IMAGEN CORREGIDA -->
+        <img src="/static/imagenes/logo.png" alt="logo NG" class="logo-grande">
         <h1>PROTEGE LO QUE TE IMPORTA</h1>
         <h2>Seguridad Electrónica • Redes Estructuradas • Soporte Especializado</h2>
-        <p>✅ Instalaciones profesionales con materiales de primera calidad, incluyendo <strong>Tubería EMT y accesorios certificados</strong>. Más de 8 años respaldando tu tranquilidad.</p>
-        <div>
-            <a href="{{ url_for('contacto') }}" class="boton">✅ SOLICITAR ASESORÍA GRATUITA</a>
-            <a href="{{ url_for('portafolio') }}" class="boton boton-azul">📸 VER TRABAJOS REALIZADOS</a>
+        <p>Instalaciones profesionales con materiales de primera calidad, incluyendo <strong>Tubería EMT y accesorios certificados</strong></p>
+        <div class="botones">
+            <a href="/contacto" class="boton">📩 SOLICITAR ASESORÍA GRATUITA</a>
+            <a href="/portafolio" class="boton boton-azul">✅ VER TRABAJOS REALIZADOS</a>
         </div>
     </header>
 
-    <!-- 🏆 POR QUÉ ELEGIRNOS -->
+    <!-- 📌 POR QUÉ ELEGIRNOS -->
     <section class="contenedor">
         <h2 class="titulo-seccion">LA DIFERENCIA DE TRABAJAR CON VERDADEROS PROFESIONALES</h2>
         <div class="grid-3col">
-            <div class="tarjeta" style="background:rgba(205, 127, 50, 0.08); border-color:var(--dorado-metalico)">
-                <div class="contenido" style="text-align:center;">
-                    <span style="font-size:3rem;">🔩</span>
-                    <h3>MATERIALES DE PRIMERA</h3>
-                    <p>Utilizamos <strong>Tubería EMT (Tubo Metálico Ligero)</strong>, codos, uniones y accesorios para todas las instalaciones expuestas. Mayor resistencia, estética impecable y cumplimiento de normas técnicas.</p>
-                </div>
-            </div>
-            <div class="tarjeta">
+            <div class="tarjeta" style="background:rgba(20, 127, 50, 0.8); border-color:var(--dorado-metalico)">
                 <div class="contenido" style="text-align:center;">
                     <span style="font-size:3rem;">🛡️</span>
-                    <h3>SEGURIDAD Y GARANTÍA</h3>
-                    <p>Todos nuestros servicios cuentan con garantía escrita. Trabajamos con marcas líderes del mercado para asegurar que tu inversión dure años sin fallas.</p>
+                    <h3>EXPERIENCIA DEMOSTRADA</h3>
+                    <p>Muetra nuestro portafolio: el orden, la limpieza y la calidad se ven a simple vista. Un trabajo bien hecho es nuestra carta de presentación.</p>
                 </div>
             </div>
-            <div class="tarjeta">
+            <div class="tarjeta" style="background:rgba(10, 80, 160, 0.8); border-color:var(--dorado-metalico)">
                 <div class="contenido" style="text-align:center;">
-                    <span style="font-size:3rem;">📂</span>
-                    <h3>EXPERIENCIA DEMOSTRADA</h3>
-                    <p>Mira nuestro portafolio: el orden, la limpieza y la calidad se ven a simple vista. Un trabajo bien hecho no solo funciona bien, ¡también se ve bien!</p>
+                    <span style="font-size:3rem;">📜</span>
+                    <h3>GARANTÍA POR ESCRITO</h3>
+                    <p>Todos nuestros trabajos y equipos tienen garantía real y por escrito. Si hay un problema, lo resolvemos. No vendemos productos, vendemos soluciones y confianza.</p>
+                </div>
+            </div>
+            <div class="tarjeta" style="background:rgba(120, 90, 10, 0.8); border-color:var(--dorado-metalico)">
+                <div class="contenido" style="text-align:center;">
+                    <span style="font-size:3rem;">⚡</span>
+                    <h3>ATENCIÓN INMEDIATA</h3>
+                    <p>Entendemos que la seguridad y la conectividad no pueden esperar. Por eso damos respuestas rápidas, instalaciones ágiles y soporte cuando lo necesites.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 💼 SERVICIOS DESTACADOS -->
+    <!-- 📌 SERVICIOS DESTACADOS -->
     <section class="contenedor">
         <h2 class="titulo-seccion">SOLUCIONES DISEÑADAS PARA TI</h2>
         <div class="grid-3col">
-            {% for serv in empresa.servicios[:3] %}
+            {% for serv in servicios[:3] %}
             <div class="tarjeta">
-                <img src="{{ url_for('static', filename='imagenes/' + serv.imagen) }}" alt="{{ serv.titulo }}">
+                <!-- ✅ ✅ AQUÍ ESTABA EL ERROR, ASÍ QUEDA BIEN -->
+                <img src="/static/imagenes/{{ serv.imagen }}" alt="{{ serv.titulo }}">
                 <div class="contenido">
                     <span class="categoria">{{ serv.categoria }}</span>
                     <h3>{{ serv.icono }} {{ serv.titulo }}</h3>
                     <p>{{ serv.resumen }}</p>
-                    <a href="{{ url_for('servicios') }}" style="color:var(--dorado-metalico); font-weight:bold; text-decoration:none; margin-top:1rem; display:inline-block;">Ver detalles →</a>
                 </div>
             </div>
             {% endfor %}
         </div>
-        <div style="text-align:center; margin-top:3rem;">
-            <a href="{{ url_for('servicios') }}" class="boton">VER TODOS LOS SERVICIOS</a>
+        <div style="text-align:center; margin-top:2rem;">
+            <a href="/servicios" class="boton">VER TODOS LOS SERVICIOS</a>
         </div>
     </section>
 
-    <!-- 📸 MUESTRA PORTAFOLIO -->
-    <section class="contenedor">
-        <h2 class="titulo-seccion">NUESTRO TRABAJO HABLA POR NOSOTROS</h2>
-        <div class="grid-3col">
-            <div class="tarjeta">
-                <img src="{{ url_for('static', filename='imagenes/portafolio/emt1.jpg') }}" alt="Instalación EMT">
-                <div class="contenido">
-                    <h3>Instalación con Tubería EMT</h3>
-                    <p>Acabado profesional y máxima protección.</p>
-                </div>
-            </div>
-            <div class="tarjeta">
-                <img src="{{ url_for('static', filename='imagenes/portafolio/rack1.jpg') }}" alt="Organización Rack">
-                <div class="contenido">
-                    <h3>Organización de Racks</h3>
-                    <p>Orden extremo y etiquetado técnico.</p>
-                </div>
-            </div>
-            <div class="tarjeta">
-                <img src="{{ url_for('static', filename='imagenes/portafolio/cctv1.jpg') }}" alt=">Sistema CCTV">
-                <div class="contenido">
-                    <h3>Sistemas de Seguridad</h3>
-                    <p>Estética y cobertura 24/7.</p>
-                </div>
-            </div>
-        </div>
-        <div style="text-align:center; margin-top:3rem;">
-            <a href="{{ url_for('portafolio') }}" class="boton">VER PORTAFOLIO COMPLETO</a>
-        </div>
-    </section>
-
-    <!-- ⏱️ SECCIÓN URGENCIA -->
-    <section class="contenedor destacado-emt">
-        <h3>¿TIENES UNA EMERGENCIA O DESEAS PROTEGER TU NEGOCIO HOY MISMO?</h3>
-        <p style="font-size:1.2rem; margin:1rem 0;">No arriesgues tu seguridad ni tu tiempo. Una instalación mal hecha o un equipo dañado te cuesta dinero.</p>
-        <a href="https://wa.me/{{ empresa.whatsapp }}" target="_blank" class="boton">📲 CONTÁCTANOS AHORA POR WHATSAPP</a>
-        <p style="margin-top:1rem; color:var(--azul-claro);">🕒 Atendemos de Lunes a Sábado de 8:00 AM a 6:00 PM | 📍 {{ empresa.ubicacion }}</p>
-    </section>
-
-    <!-- 🦶 PIE DE PÁGINA -->
+    <!-- 📌 PIE DE PÁGINA -->
     <footer>
-        <p>&copy; 2026 {{ empresa.nombre }}. Todos los derechos reservados.</p>
-        <p>{{ empresa.tecnico }} | {{ empresa.cargo }}</p>
+        <div class="contenedor">
+            <div class="grid-3col">
+                <div>
+                    <h3>{{ empresa.nombre }}</h3>
+                    <p>Soluciones tecnológicas y seguridad electrónica de alta calidad.</p>
+                </div>
+                <div>
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/servicios">Servicios</a></li>
+                        <li><a href="/portafolio">Portafolio</a></li>
+                        <li><a href="/nosotros">Nosotros</a></li>
+                        <li><a href="/contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contacto</h4>
+                    <p>📞 {{ empresa.telefono }}</p>
+                    <p>✉️ {{ empresa.correo }}</p>
+                    <p>📍 {{ empresa.direccion }}</p>
+                </div>
+            </div>
+            <p class="derechos">© {{ empresa.nombre }} - Todos los derechos reservados</p>
+        </div>
     </footer>
 
 </body>
+</html>y>
 </html>
