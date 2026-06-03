@@ -1,0 +1,396 @@
+/* ==================================================
+   PALETA DE COLORES - EXACTA DE TU TARJETA
+================================================== */
+:root {
+    --azul-profundo: #021B42;      /* Fondo principal */
+    --azul-tecnologico: #2563EB;   /* Azul brillante / detalles */
+    --dorado-metalico: #CD7F32;    /* Resaltados, logo, títulos */
+    --azul-claro: #74A9F2;         /* Textos secundarios */
+    --blanco-puro: #FFFFFF;        /* Texto principal */
+    --texto-claro: #E0E7FF;        /* Contraste */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+}
+
+body {
+    background-color: var(--azul-profundo);
+    color: var(--blanco-puro);
+    line-height: 1.6;
+    background-image: url('../imagenes/fondo.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+/* ==================================================
+   BARRA DE NAVEGACIÓN
+================================================== */
+nav {
+    background: rgba(2, 27, 66, 0.95);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--azul-tecnologico);
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+    flex-wrap: wrap;
+}
+
+nav .logo {
+    color: var(--dorado-metalico);
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px rgba(205, 127, 50, 0.4);
+}
+
+nav .info-superior {
+    color: var(--azul-claro);
+    font-size: 0.9rem;
+    gap: 1.5rem;
+    display: flex;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+nav a {
+    color: var(--blanco-puro);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+nav a:hover, nav a.active {
+    color: var(--dorado-metalico);
+    text-shadow: 0 0 5px var(--dorado-metalico);
+}
+
+.btn-whatsapp-nav {
+    background: linear-gradient(135deg, var(--dorado-metalico), #E2A34E);
+    color: var(--azul-profundo) !important;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: bold;
+}
+
+/* ==================================================
+   SECCIONES GENERALES
+================================================== */
+.contenedor {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+.titulo-seccion {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--dorado-metalico);
+    margin-bottom: 4rem;
+    text-shadow: 0 0 8px rgba(0,0,0,0.4);
+    position: relative;
+}
+
+.titulo-seccion::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--azul-tecnologico), transparent);
+}
+
+.subtitulo-seccion {
+    text-align: center;
+    color: var(--azul-claro);
+    font-size: 1.2rem;
+    margin-top: -3rem;
+    margin-bottom: 3rem;
+}
+
+/* ==================================================
+   BOTONES DE ACCIÓN (MARKETING)
+================================================== */
+.boton {
+    background: linear-gradient(135deg, var(--dorado-metalico), #E2A34E);
+    color: var(--azul-profundo);
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(205, 127, 50, 0.3);
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+}
+
+.boton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(205, 127, 50, 0.5);
+}
+
+.boton-azul {
+    background: transparent;
+    color: var(--azul-claro);
+    border: 2px solid var(--azul-tecnologico);
+    margin-left: 1rem;
+}
+
+.boton-azul:hover {
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--blanco-puro);
+}
+
+/* ==================================================
+   CABECERA PRINCIPAL
+================================================== */
+header {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(rgba(2, 27, 66, 0.85), rgba(2, 27, 66, 0.75)), 
+                url('../imagenes/fondo.jpg') center/cover no-repeat;
+}
+
+header .logo-grande {
+    max-width: 400px;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 4rem;
+    color: var(--dorado-metalico);
+    text-shadow: 0 0 15px rgba(205, 127, 50, 0.5), 2px 2px 4px #000;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+header h2 {
+    font-size: 1.8rem;
+    color: var(--azul-claro);
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+header p {
+    font-size: 1.3rem;
+    max-width: 900px;
+    color: var(--texto-claro);
+    margin-bottom: 3rem;
+}
+
+/* ==================================================
+   TARJETAS SERVICIOS Y PORTAFOLIO
+================================================== */
+.grid-3col, .grid-2col {
+    display: grid;
+    gap: 2.5rem;
+}
+
+.grid-3col { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+.grid-2col { grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); }
+
+.tarjeta {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(37, 99, 235, 0.4);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.4s;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.tarjeta:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: var(--dorado-metalico);
+    box-shadow: 0 12px 40px rgba(205, 127, 50, 0.2);
+}
+
+.tarjeta img, .tarjeta video {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 2px solid var(--azul-tecnologico);
+}
+
+.tarjeta .contenido {
+    padding: 1.8rem;
+}
+
+.tarjeta h3 {
+    color: var(--dorado-metalico);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.tarjeta .categoria {
+    color: var(--azul-claro);
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.tarjeta p {
+    color: var(--texto-claro);
+}
+
+/* ==================================================
+   SECCIÓN DESTACADA EMT / VALOR
+================================================== */
+.destacado-emt {
+    background: rgba(205, 127, 50, 0.05);
+    border: 2px solid var(--dorado-metalico);
+    border-radius: 15px;
+    padding: 3rem;
+    margin: 4rem 0;
+    text-align: center;
+}
+
+.destacado-emt h3 {
+    color: var(--dorado-metalico);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* ==================================================
+   PERFIL / NOSOTROS
+================================================== */
+.perfil-seccion {
+    background: rgba(37, 99, 235, 0.1);
+    border: 1px solid rgba(37, 99, 235, 0.3);
+    border-radius: 15px;
+    padding: 3rem;
+    margin: 3rem 0;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.foto-perfil {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 4px solid var(--dorado-metalico);
+    box-shadow: 0 0 20px rgba(205, 127, 50, 0.4);
+}
+
+.info-perfil h3 {
+    color: var(--dorado-metalico);
+    font-size: 1.8rem;
+}
+
+.info-perfil p {
+    color: var(--azul-claro);
+    font-size: 1.2rem;
+}
+
+/* ==================================================
+   FORMULARIO Y CONTACTO
+================================================== */
+.formulario {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(2, 27, 66, 0.8);
+    border: 1px solid var(--azul-tecnologico);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.grupo-input {
+    margin-bottom: 1.8rem;
+}
+
+.grupo-input label {
+    display: block;
+    margin-bottom: 0.6rem;
+    color: var(--dorado-metalico);
+    font-weight: 500;
+}
+
+.grupo-input input,
+.grupo-input select,
+.grupo-input textarea {
+    width: 100%;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--azul-claro);
+    border-radius: 8px;
+    color: var(--blanco-puro);
+    font-size: 1rem;
+}
+
+.grupo-input input:focus,
+.grupo-input select:focus,
+.grupo-input textarea:focus {
+    outline: none;
+    border-color: var(--dorado-metalico);
+    box-shadow: 0 0 0 2px rgba(205, 127, 50, 0.2);
+}
+
+.datos-contacto-directo {
+    text-align: center;
+    margin: 4rem auto;
+    padding: 2rem;
+    background: rgba(37, 99, 235, 0.1);
+    border-radius: 12px;
+    border: 1px dashed var(--dorado-metalico);
+    max-width: 600px;
+}
+
+.datos-contacto-directo p {
+    font-size: 1.3rem;
+    margin: 0.8rem 0;
+    color: var(--blanco-puro);
+}
+
+.datos-contacto-directo a {
+    color: var(--dorado-metalico);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.alerta {
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    text-align: center;
+}
+.alerta.exito { background-color: rgba(16, 185, 129, 0.2); color: #86EFAC; border: 1px solid #10B981; }
+
+/* ==================================================
+   PIE DE PÁGINA
+================================================== */
+footer {
+    background-color: rgba(2, 27, 66, 0.95);
+    border-top: 2px solid var(--azul-tecnologico);
+    color: var(--azul-claro);
+    text-align: center;
+    padding: 2.5rem;
+    margin-top: 4rem;
+}
