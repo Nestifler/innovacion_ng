@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio | {{ empresa.nombre }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
+</head>
+<body>
+
+    <!-- 🧭 BARRA DE NAVEGACIÓN -->
+    <nav>
+        <a href="{{ url_for('inicio') }}" class="logo">NG</a>
+        <div class="info-superior">
+            <span>⭐ Garantía Escrita</span>
+            <span>⏱️ Atención Inmediata</span>
+            <span>🛡️ Calidad Certificada</span>
+        </div>
+        <ul>
+            <li><a href="{{ url_for('inicio') }}">INICIO</a></li>
+            <li><a href="{{ url_for('servicios') }}">SERVICIOS</a></li>
+            <li><a href="{{ url_for('portafolio') }}" class="active">PORTAFOLIO</a></li>
+            <li><a href="{{ url_for('nosotros') }}">NOSOTROS</a></li>
+            <li><a href="{{ url_for('contacto') }}">CONTACTO</a></li>
+            <li><a href="https://wa.me/{{ empresa.whatsapp }}" target="_blank" class="btn-whatsapp-nav">📞 {{ empresa.telefono }}</a></li>
+        </ul>
+    </nav>
+
+    <!-- 📸 ENCABEZADO -->
+    <section class="contenedor">
+        <h1 class="titulo-seccion">NUESTRO PORTAFOLIO DE TRABAJOS REALIZADOS</h1>
+        <p class="subtitulo-seccion">La mejor carta de presentación es un trabajo bien hecho. Calidad, orden y estética que se ven a simple vista.</p>
+    </section>
+
+    <!-- 📂 GALERÍA DE PROYECTOS -->
+    <section class="contenedor">
+        {% for proyecto in empresa.portafolio %}
+        <div class="tarjeta" style="margin-bottom:4rem; padding:2rem;">
+            <h2 style="color:var(--dorado-metalico); margin-bottom:1rem;">{{ proyecto.categoria }}</h2>
+            <h3 style="color:var(--azul-claro); margin-bottom:2rem;">{{ proyecto.titulo }}</h3>
+            
+            <div class="grid-3col">
+                {% for img in proyecto.imagenes %}
+                <img src="{{ url_for('static', filename='imagenes/' + img) }}" alt="Proyecto" style="width:100%; border-radius:8px;">
+                {% endfor %}
+
+                {% if proyecto.video %}
+                <video controls style="width:100%; border-radius:8px;">
+                    <source src="{{ url_for('static', filename='imagenes/' + proyecto.video) }}" type="video/mp4">
+                    Tu navegador no soporta videos.
+                </video>
+                {% endif %}
+            </div>
+
+            <p style="margin-top:2rem; font-size:1.1rem;">{{ proyecto.descripcion }}</p>
+        </div>
+        {% endfor %}
+    </section>
+
+    <!-- 📢 LLAMADO A LA ACCIÓN -->
+    <section class="contenedor destacado-emt">
+        <h3>¿QUIERES QUE TU PROYECTO QUEDE ASÍ DE BIEN HECHO?</h3>
+        <p style="font-size:1.2rem; margin:1rem 0;">Tú también puedes tener instalaciones seguras, ordenadas y estéticas como estas. Trabajemos juntos.</p>
+        <a href="{{ url_for('contacto') }}" class="boton">📩 SOLICITAR MI COTIZACIÓN YA</a>
+    </section>
+
+    <!-- 🦶 PIE DE PÁGINA -->
+    <footer>
+        <p>&copy; 2026 {{ empresa.nombre }}. Todos los derechos reservados.</p>
+        <p>{{ empresa.tecnico }} | {{ empresa.cargo }}</p>
+    </footer>
+
+</body>
+</html>
