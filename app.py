@@ -34,7 +34,7 @@ INFO_EMPRESA = {
                 ✅ Protección profesional del cableado mediante <strong>Tubería EMT y accesorios certificados</strong> en instalaciones visibles, garantizando estética y seguridad.<br>
                 ✅ Asesoría gratuita, capacitación y garantía escrita.
             """,
-            "imagen": "servicios/cctv.png",
+            "imagen": "cctv.png",
             "icono": "📹"
         },
         {
@@ -48,7 +48,7 @@ INFO_EMPRESA = {
                 ✅ Integración total con tus cámaras de seguridad.<br>
                 ✅ Equipos de marcas líderes y resistentes a condiciones ambientales.
             """,
-            "imagen": "servicios/alarmas.png",
+            "imagen": "Alarmas.png",
             "icono": "🚨"
         },
         {
@@ -63,7 +63,7 @@ INFO_EMPRESA = {
                 ✅ Montaje, organización y etiquetado técnico de <strong>RACKS, gabinetes y bandejas</strong>. Orden extremo y facilidad de mantenimiento.<br>
                 ✅ Soluciones para oficinas, empresas, conjuntos residenciales y colegios.
             """,
-            "imagen": "servicios/redes.png",
+            "imagen": "tencido_de_cable.png",
             "icono": "🔌"
         },
         {
@@ -77,7 +77,7 @@ INFO_EMPRESA = {
                 ✅ Redes seguras y balanceadas para que todos los dispositivos funcionen a máxima velocidad.<br>
                 ✅ Olvídate de las caídas de conexión que detienen tu negocio.
             """,
-            "imagen": "servicios/rack.png",
+            "imagen": "rack1.png",
             "icono": "📶"
         },
         {
@@ -92,7 +92,7 @@ INFO_EMPRESA = {
                 ✅ Reparación de fallas de hardware: placas, pantallas, teclados, baterías y más.<br>
                 ✅ Evita pérdidas de tiempo y dinero por equipos lentos o dañados.
             """,
-            "imagen": "servicios/computadores.png",
+            "imagen": "computadores.png",
             "icono": "💻"
         },
         {
@@ -107,7 +107,7 @@ INFO_EMPRESA = {
                 ✅ Recarga y cambio de tóner y tintas con garantía de funcionamiento.<br>
                 ✅ Reparación de mecanismos y piezas electrónicas.
             """,
-            "imagen": "servicios/impresoras.png",
+            "imagen": "impresoras.png",
             "icono": "🖨️"
         }
     ],
@@ -118,21 +118,21 @@ INFO_EMPRESA = {
             "categoria": "Instalaciones con Tubería EMT",
             "titulo": "Recorridos profesionales y seguros",
             "descripcion": "Instalación completa utilizando Tubería EMT galvanizada, codos y accesorios. Protección total contra golpes, roedores y ambiente. Acabado limpio, alineado y estético que cumple con todas las normas técnicas.",
-            "imagenes": ["portafolio/emt1.png", "portafolio/emt2.png"],
+            "imagenes": ["emt1.png", "emt2.png"],
             "video": "portafolio/video1.mp4"
         },
         {
             "categoria": "Organización de Racks y Gabinetes",
             "titulo": "Orden es sinónimo de calidad",
             "descripcion": "Montaje de gabinete de comunicaciones con organización extrema de cableado estructurado, uso de accesorios de sujeción, rutas definidas y etiquetado técnico detallado. Facilita mantenimientos futuros y evita fallas.",
-            "imagenes": ["portafolio/rack1.png"],
+            "imagenes": ["rack1.png"],
             "video": None
         },
         {
             "categoria": "Sistemas de Seguridad CCTV",
             "titulo": "Estética y cobertura 24/7",
             "descripcion": "Proyectos de videovigilancia para oficinas y hogares. Instalación de cámaras en puntos estratégicos, cableado protegido y configuración remota. Un trabajo bien hecho debe funcionar perfecto y verse perfecto.",
-            "imagenes": ["portafolio/cctv1.png"],
+            "imagenes": ["cctv1.png"],
             "video": None
         }
     ]
@@ -143,15 +143,18 @@ INFO_EMPRESA = {
 # ==================================================
 @app.route('/')
 def inicio():
-    return render_template('index.html', empresa=INFO_EMPRESA)
+    # ✅ AQUÍ SE ENVÍAN LOS DATOS AL HTML (antes faltaba)
+    return render_template('index.html', empresa=INFO_EMPRESA, servicios=INFO_EMPRESA["servicios"], portafolio=INFO_EMPRESA["portafolio"])
 
 @app.route('/servicios')
 def servicios():
-    return render_template('servicios.html', empresa=INFO_EMPRESA)
+    # ✅ AQUÍ SE ENVÍAN LOS DATOS AL HTML
+    return render_template('servicios.html', empresa=INFO_EMPRESA, servicios=INFO_EMPRESA["servicios"])
 
 @app.route('/portafolio')
 def portafolio():
-    return render_template('portafolio.html', empresa=INFO_EMPRESA)
+    # ✅ AQUÍ SE ENVÍAN LOS DATOS AL HTML
+    return render_template('portafolio.html', empresa=INFO_EMPRESA, portafolio=INFO_EMPRESA["portafolio"])
 
 @app.route('/nosotros')
 def nosotros():
@@ -189,5 +192,6 @@ def contacto():
     
     return render_template('contacto.html', empresa=INFO_EMPRESA)
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+# ✅ CONFIGURACIÓN OBLIGATORIA PARA RENDER
+if _name_ == '_main_':
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
