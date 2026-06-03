@@ -8,85 +8,73 @@
 </head>
 <body>
 
-    <!-- 🧭 BARRA DE NAVEGACIÓN -->
+    <!-- 📌 BARRA DE NAVEGACIÓN -->
     <nav>
-        <a href="{{ url_for('inicio') }}" class="logo">NG</a>
+        <a href="/" class="logo">NG</a>
         <div class="info-superior">
             <span>⭐ Garantía Escrita</span>
-            <span>⏱️ Atención Inmediata</span>
-            <span>🛡️ Calidad Certificada</span>
+            <span>⚡ Atención Inmediata</span>
+            <span>🔵 Calidad Certificada</span>
         </div>
         <ul>
-            <li><a href="{{ url_for('inicio') }}">INICIO</a></li>
-            <li><a href="{{ url_for('servicios') }}">SERVICIOS</a></li>
-            <li><a href="{{ url_for('portafolio') }}">PORTAFOLIO</a></li>
-            <li><a href="{{ url_for('nosotros') }}" class="active">NOSOTROS</a></li>
-            <li><a href="{{ url_for('contacto') }}">CONTACTO</a></li>
+            <li><a href="/">INICIO</a></li>
+            <li><a href="/servicios">SERVICIOS</a></li>
+            <li><a href="/portafolio">PORTAFOLIO</a></li>
+            <li><a href="/nosotros">NOSOTROS</a></li>
+            <li><a href="/contacto">CONTACTO</a></li>
             <li><a href="https://wa.me/{{ empresa.whatsapp }}" target="_blank" class="btn-whatsapp-nav">📞 {{ empresa.telefono }}</a></li>
         </ul>
     </nav>
 
-    <!-- 👤 PERFIL PRINCIPAL -->
     <section class="contenedor">
-        <h1 class="titulo-seccion">SOBRE NOSOTROS</h1>
-
-        <div class="perfil-seccion">
-            <img src="{{ url_for('static', filename='imagenes/perfil.png') }}" alt="Foto de Perfil" class="foto-perfil">
-            
-            <div class="info-perfil">
-                <h2 style="color:var(--dorado-metalico); font-size:2.2rem;">{{ empresa.tecnico }}</h2>
-                <h3>{{ empresa.cargo }}</h3>
-                <p style="font-size:1.2rem; margin-top:1rem;">{{ empresa.experiencia }}</p>
-                <p style="font-size:1.1rem; margin-top:1rem;">
-                    Mi objetivo es claro: Que tú estés seguro, que tu negocio no se detenga y que tu tecnología funcione perfectamente. 
-                    <strong>No vendemos equipos, vendemos SOLUCIONES y RESULTADOS.</strong>
-                </p>
+        <h1 class="titulo-seccion">Sobre Nosotros</h1>
+        <div class="grid-2col">
+            <div>
+                <h2>Quiénes somos</h2>
+                <p>Somos una empresa especializada en soluciones tecnológicas y seguridad electrónica. Contamos con personal altamente capacitado y usamos materiales de primera calidad, garantizando instalaciones seguras, estéticas y duraderas.</p>
+                <p>Nuestra misión es brindar tranquilidad y conectividad a hogares y empresas, respaldados por garantía escrita y atención inmediata.</p>
+                <br>
+                <h3>✅ Nuestros valores</h3>
+                <ul>
+                    <li>Calidad en materiales y mano de obra</li>
+                    <li>Honestidad y precios justos</li>
+                    <li>Garantía real y soporte continuo</li>
+                    <li>Orden, limpieza y profesionalismo</li>
+                </ul>
+            </div>
+            <div>
+                <img src="/static/imagenes/Laptop.png" alt="Trabajo profesional" style="width:100%; border-radius:8px;">
             </div>
         </div>
     </section>
 
-    <!-- 🎯 NUESTRA FILOSOFÍA -->
-    <section class="contenedor">
-        <h2 class="titulo-seccion">NUESTRA FILOSOFÍA DE TRABAJO</h2>
-
-        <div class="grid-3col">
-            <div class="tarjeta">
-                <div class="contenido" style="text-align:center;">
-                    <span style="font-size:3rem;">🔩</span>
-                    <h3>CALIDAD TÉCNICA</h3>
-                    <p>Utilizamos solo materiales certificados. La <strong>Tubería EMT</strong> es nuestro estándar en instalaciones visibles porque sabemos que la protección y la estética van de la mano. Cumplimos todas las normas técnicas vigentes.</p>
-                </div>
-            </div>
-
-            <div class="tarjeta">
-                <div class="contenido" style="text-align:center;">
-                    <span style="font-size:3rem;">📚</span>
-                    <h3>ORDEN Y LIMPIEZA</h3>
-                    <p>Un sistema desordenado es un sistema que falla. Nos especializamos en el orden extremo, especialmente en <strong>Racks y gabinetes</strong>, facilitando futuros mantenimientos y evitando problemas por mala organización.</p>
-                </div>
-            </div>
-
-            <div class="tarjeta">
-                <div class="contenido" style="text-align:center;">
-                    <span style="font-size:3rem;">🤝</span>
-                    <h3>HONESTIDAD</h3>
-                    <p>Te recomendamos lo que realmente necesitas, nunca lo que no sirve. Asesoría clara, precios justos y explicaciones sencillas para que entiendas todo lo que hacemos en tu proyecto.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 📢 LLAMADO A LA ACCIÓN -->
-    <section class="contenedor destacado-emt">
-        <h3>¿LISTO PARA TRABAJAR CON VERDADEROS ESPECIALISTAS?</h3>
-        <p style="font-size:1.2rem; margin:1rem 0;">Más de 200 clientes ya confían en nosotros. Únete a la familia de clientes satisfechos.</p>
-        <a href="{{ url_for('contacto') }}" class="boton">📩 CONTACTAR AHORA</a>
-    </section>
-
-    <!-- 🦶 PIE DE PÁGINA -->
+    <!-- 📌 PIE DE PÁGINA -->
     <footer>
-        <p>&copy; 2026 {{ empresa.nombre }}. Todos los derechos reservados.</p>
-        <p>{{ empresa.tecnico }} | {{ empresa.cargo }}</p>
+        <div class="contenedor">
+            <div class="grid-3col">
+                <div>
+                    <h3>{{ empresa.nombre }}</h3>
+                    <p>Soluciones tecnológicas y seguridad electrónica de alta calidad.</p>
+                </div>
+                <div>
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/servicios">Servicios</a></li>
+                        <li><a href="/portafolio">Portafolio</a></li>
+                        <li><a href="/nosotros">Nosotros</a></li>
+                        <li><a href="/contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contacto</h4>
+                    <p>📞 {{ empresa.telefono }}</p>
+                    <p>✉️ {{ empresa.correo }}</p>
+                    <p>📍 {{ empresa.direccion }}</p>
+                </div>
+            </div>
+            <p class="derechos">© {{ empresa.nombre }} - Todos los derechos reservados</p>
+        </div>
     </footer>
 
 </body>
